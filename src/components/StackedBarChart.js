@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import palette from "../data/palette";
 
-const StackedBarChart = ({ chartData }) => {
+const StackedBarChart = ({ chartData, title }) => {
   const [labels, setLabels] = useState(chartData.labels);
   const [subLabels, setSubLabels] = useState([]);
   const [colors, setColors] = useState([]);
 
   useEffect(() => {
-    const palette = [
-      "#ea5545",
-      "#f46a9b",
-      "#ef9b20",
-      "#edbf33",
-      "#ede15b",
-      "#bdcf32",
-      "#87bc45",
-      "#27aeef",
-      "#b33dc6",
-    ];
-
     const subKeys = Object.keys(chartData.datasets);
     setLabels(chartData.labels);
     setSubLabels(subKeys);
@@ -42,6 +31,13 @@ const StackedBarChart = ({ chartData }) => {
       width={600}
       options={{
         responsive: false,
+        plugins: {
+          title: {
+            display: true,
+            text: title,
+            align: "center",
+          },
+        },
         scales: {
           x: {
             stacked: true,

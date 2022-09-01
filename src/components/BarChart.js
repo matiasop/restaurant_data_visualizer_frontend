@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
-const BarChart = ({ chartData, category }) => {
+const BarChart = ({ chartData, category, title }) => {
   const [labels, setLabels] = useState(chartData.labels);
   const [data, setData] = useState([]);
   const color = "#ea5545";
@@ -16,7 +16,6 @@ const BarChart = ({ chartData, category }) => {
     <Bar
       data={{
         labels: labels,
-        // datasets: datasets,
         datasets: [
           {
             label: category,
@@ -29,6 +28,13 @@ const BarChart = ({ chartData, category }) => {
       width={600}
       options={{
         responsive: false,
+        plugins: {
+          title: {
+            display: true,
+            text: title,
+            align: "center",
+          },
+        },
       }}
     />
   );

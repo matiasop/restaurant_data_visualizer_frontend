@@ -2,19 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import StackedBarChart from "./StackedBarChart";
 
-const options = [
-  {
-    label: "Semanal",
-    value: "weekday",
-  },
-  {
-    label: "Mensual",
-    value: "month",
-  },
-];
-
-const StackedBarChartSelector = () => {
-  const [selectedValue, setSelectedValue] = useState("weekday");
+const StackedBarChartSelector = ({ options, title }) => {
+  const [selectedValue, setSelectedValue] = useState(options[0].value);
   const [chartData, setChartData] = useState({ labels: [], datasets: {} });
 
   useEffect(() => {
@@ -42,7 +31,7 @@ const StackedBarChartSelector = () => {
           ))}
         </select>
       </div>
-      <StackedBarChart chartData={chartData} />
+      <StackedBarChart chartData={chartData} title={title} />
     </>
   );
 };
