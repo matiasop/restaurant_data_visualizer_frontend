@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import BarChart from "./BarChart";
+import StackedBarChart from "./StackedBarChart";
 
 const options = [
   {
@@ -15,6 +15,18 @@ const options = [
 
 const ChartSelector = () => {
   const [selectedValue, setSelectedValue] = useState("weekday");
+  const [chartData, setChartData] = useState({ labels: [], datasets: {} });
+
+  useEffect(() => {
+    const getData = async () => {
+      const url = `https://restaurant-data-visualizer.herokuapp.com/total_sales/${selectedValue}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      setChartData(data);
+    };
+    getData();
+  }, [selectedValue]);
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -31,7 +43,7 @@ const ChartSelector = () => {
           ))}
         </select>
       </div>
-      <BarChart group={selectedValue} />
+      <StackedBarChart chartData={chartData} />
     </>
   );
 };
