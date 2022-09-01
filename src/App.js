@@ -1,8 +1,14 @@
 import './App.css';
 
+import BarChart from './components/BarChart';
+import './App.css';
+
 const App = () => {
   return (
-    <div>Hola mundo</div>
+    <div>
+      <div>Hola mundo</div>
+      <BarChart/>
+    </div>
   )
 }
 
