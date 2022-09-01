@@ -20,7 +20,7 @@ const DoughnutChartSelector = ({ options, title }) => {
   };
 
   return (
-    <>
+    <div className="chart-container">
       <div className="selectContainer">
         <select value={selectedValue} onChange={handleChange}>
           {options.map((option) => (
@@ -31,7 +31,7 @@ const DoughnutChartSelector = ({ options, title }) => {
         </select>
       </div>
       <DoughnutChart chartData={chartData} title={title} />
-    </>
+    </div>
   );
 };
 

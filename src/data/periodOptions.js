@@ -1,10 +1,10 @@
 const periodOptions = [
   {
-    label: "Semanal",
+    label: "Día de la Semana",
     value: "weekday",
   },
   {
-    label: "Mensual",
+    label: "Mes",
     value: "month",
   },
 ];

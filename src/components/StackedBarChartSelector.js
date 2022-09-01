@@ -21,7 +21,7 @@ const StackedBarChartSelector = ({ options, title }) => {
   };
 
   return (
-    <>
+    <div className="chart-container">
       <div className="selectContainer">
         <select value={selectedValue} onChange={handleChange}>
           {options.map((option) => (
@@ -32,7 +32,7 @@ const StackedBarChartSelector = ({ options, title }) => {
         </select>
       </div>
       <StackedBarChart chartData={chartData} title={title} />
-    </>
+    </div>
   );
 };
 

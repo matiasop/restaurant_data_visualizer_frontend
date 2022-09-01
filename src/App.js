@@ -7,21 +7,25 @@ import periodOptions from "./data/periodOptions";
 
 const App = () => {
   return (
-    <div>
-      <StackedBarChartSelector
-        options={periodOptions}
-        title={"Ventas Totales por Período"}
-      />
-      <StackedBarChartSelector
-        options={groupOptions}
-        title={"Ventas Totales por Empleado o Zona"}
-      />
-      <BarChartSelector title={"Ventas por Categoría"} />
-      <DoughnutChartSelector
-        options={periodOptions.concat(groupOptions)}
-        title={"Participación de Ventas"}
-      />
-    </div>
+    <>
+      <h1 className="title">Visualizador de Datos de Restaurant</h1>
+      <hr className="horizontal-line"></hr>
+      <div className="charts-container">
+        <StackedBarChartSelector
+          options={periodOptions}
+          title={"Ventas Totales por Período"}
+        />
+        <DoughnutChartSelector
+          options={periodOptions.concat(groupOptions)}
+          title={"Participación de Ventas"}
+        />
+        <StackedBarChartSelector
+          options={groupOptions}
+          title={"Ventas Totales por Empleado o Zona"}
+        />
+        <BarChartSelector title={"Ventas por Categoría"} />
+      </div>
+    </>
   );
 };
 

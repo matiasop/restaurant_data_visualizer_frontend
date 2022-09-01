@@ -29,7 +29,7 @@ const BarChartSelector = ({ title }) => {
   };
 
   return (
-    <>
+    <div className="chart-container">
       <div className="selectContainer">
         <select value={selectedPeriod} onChange={handleChangePeriod}>
           {periodOptions.map((option) => (
@@ -51,7 +51,7 @@ const BarChartSelector = ({ title }) => {
         category={selectedCategory}
         title={title}
       />
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+
 import palette from "../data/palette";
+import chartSettings from "../data/chartSettings";
 
 const StackedBarChart = ({ chartData, title }) => {
   const [labels, setLabels] = useState(chartData.labels);
@@ -27,8 +29,8 @@ const StackedBarChart = ({ chartData, title }) => {
           backgroundColor: colors[x],
         })),
       }}
-      height={400}
-      width={600}
+      height={chartSettings.height}
+      width={chartSettings.width}
       options={{
         responsive: false,
         plugins: {

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
-import palette from "../data/palette";
 import { Chart as ChartJS } from "chart.js/auto";
+
+import palette from "../data/palette";
+import chartSettings from "../data/chartSettings";
 
 const DoughnutChart = ({ chartData, title }) => {
   return (
@@ -17,8 +19,8 @@ const DoughnutChart = ({ chartData, title }) => {
           },
         ],
       }}
-      height={400}
-      width={600}
+      height={chartSettings.height}
+      width={chartSettings.width}
       options={{
         responsive: false,
         plugins: {
