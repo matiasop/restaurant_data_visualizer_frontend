@@ -13,7 +13,7 @@ const options = [
   },
 ];
 
-const ChartSelector = () => {
+const StackedBarChartSelector = () => {
   const [selectedValue, setSelectedValue] = useState("weekday");
   const [chartData, setChartData] = useState({ labels: [], datasets: {} });
 
@@ -22,7 +22,6 @@ const ChartSelector = () => {
       const url = `https://restaurant-data-visualizer.herokuapp.com/total_sales/${selectedValue}`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setChartData(data);
     };
     getData();
@@ -48,4 +47,4 @@ const ChartSelector = () => {
   );
 };
 
-export default ChartSelector;
+export default StackedBarChartSelector;

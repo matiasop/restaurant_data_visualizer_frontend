@@ -1,12 +1,12 @@
 import "./App.css";
-
-import ChartSelector from "./components/ChartSelector";
-import "./App.css";
+import StackedBarChartSelector from "./components/StackedBarChartSelector";
+import BarChartSelector from "./components/BarChartSelector";
 
 const App = () => {
   return (
     <div>
-      <ChartSelector />
+      <StackedBarChartSelector />
+      <BarChartSelector />
     </div>
   );
 };
