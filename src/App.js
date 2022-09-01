@@ -1,15 +1,14 @@
-import './App.css';
+import "./App.css";
 
-import BarChart from './components/BarChart';
-import './App.css';
+import ChartSelector from "./components/ChartSelector";
+import "./App.css";
 
 const App = () => {
   return (
     <div>
-      <div>Hola mundo</div>
-      <BarChart/>
+      <ChartSelector />
     </div>
-  )
-}
+  );
+};
 
 export default App;

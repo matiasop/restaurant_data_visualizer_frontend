@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import sampleData from "../sampleData";
+import monthData from "../monthData";
 
-const BarChart = () => {
+const BarChart = ({ group }) => {
   const [labels, setLabels] = useState([]);
   const [subLabels, setSubLabels] = useState([]);
   const [colors, setColors] = useState([]);
@@ -20,13 +21,19 @@ const BarChart = () => {
   ];
 
   useEffect(() => {
-    const subKeys = Object.keys(sampleData.datasets);
-    setLabels(sampleData.labels);
+    let data = {};
+    if (group === "weekday") {
+      data = sampleData;
+    } else if (group === "month") {
+      data = monthData;
+    }
+    const subKeys = Object.keys(data.datasets);
+    setLabels(data.labels);
     setSubLabels(subKeys);
     const colors_aux = {};
     subKeys.forEach((key, index) => (colors_aux[key] = palette[index]));
     setColors(colors_aux);
-  }, []);
+  }, [group]);
 
   return (
     <Bar
